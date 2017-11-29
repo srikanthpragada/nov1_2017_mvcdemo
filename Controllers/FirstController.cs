@@ -34,6 +34,20 @@ namespace mvcdemo.Controllers
             return View(info);
         }
 
-        
+        public ActionResult Discount()
+        {
+            DiscountModel model = new DiscountModel { Rate = 10 };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Discount(DiscountModel model)
+        {
+            if (ModelState.IsValid)
+                  model.Discount = model.Amount * model.Rate / 100;
+            return View(model);
+        }
+
+
     }
 }
