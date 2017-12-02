@@ -51,6 +51,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -154,11 +155,14 @@
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\CacheController.cs" />
     <Compile Include="Controllers\FirstController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CatalogContext.cs" />
     <Compile Include="Models\DiscountModel.cs" />
     <Compile Include="Models\Information.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +208,10 @@
     <Content Include="Views\Cache\Index.cshtml" />
     <Content Include="Views\Ajax\Index.cshtml" />
     <Content Include="Views\Ajax\Factors.cshtml" />
+    <Content Include="Views\Shared\catalog.cshtml" />
+    <Content Include="Views\Products\List.cshtml" />
+    <Content Include="Views\Products\Add.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,31 @@
+﻿@model mvcdemo.Models.Product
+
+@{
+    ViewBag.Title = "Add Product";
+    Layout = "~/Views/Shared/catalog.cshtml";
+}
+
+<h2>New Product</h2>
+
+@using (Html.BeginForm())
+{
+        <div>Product Name </div>
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+        <p />
+        <div>Price</div>
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+        <p />
+        <div>Category</div>
+        @Html.EditorFor(model => model.Category)
+        @Html.ValidationMessageFor(model => model.Name)
+        <p />
+        <div>Remarks </div>
+        @Html.EditorFor(model => model.Remarks)
+        @Html.ValidationMessageFor(model => model.Name)
+        <p />
+        <input type="submit" value="Add Product" />
+}
+
+<h4>@ViewBag.Message</h4>

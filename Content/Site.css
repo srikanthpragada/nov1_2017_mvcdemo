@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +20,20 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.banner {
+    color :white;
+    background-color : red;
+    font-family  : Arial;
+    font-size : 30pt;
+    font-weight :bold;
+    letter-spacing : 5pt;
+}
+
+.menu {
+    background-color: lightgray;
+    font-family: verdana;
+    font-size: 12pt;
+    font-weight: bold;
 }

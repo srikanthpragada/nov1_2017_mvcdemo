@@ -1,0 +1,40 @@
+﻿@model mvcdemo.Models.Product
+
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "~/Views/Shared/catalog.cshtml";
+}
+
+<h2>Edit Product</h2>
+
+<h4>@ViewBag.Message</h4>
+
+@if (ViewBag.Message == null)
+{
+
+    using (Html.BeginForm())
+    {
+        <div>Product Name </div>
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+        <p />
+        <div>Price</div>
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+        <p />
+        <div>Qoh</div>
+        @Html.EditorFor(model => model.Qoh)
+        @Html.ValidationMessageFor(model => model.Qoh)
+        <p />
+        <div>Category</div>
+        @Html.EditorFor(model => model.Category)
+        @Html.ValidationMessageFor(model => model.Name)
+        <p />
+        <div>Remarks </div>
+        @Html.EditorFor(model => model.Remarks)
+        @Html.ValidationMessageFor(model => model.Name)
+        <p />
+        <input type="submit" value="Update Product" />
+    }
+
+}
