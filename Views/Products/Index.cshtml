@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/catalog.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+<h2>Search</h2>
+
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "products" }))
+{
+    <input type="text" name="prodname" id="prodname"/>
+    <input type="submit" value="Search"/>
+    <p/>
+    <div id="products"></div>
+}
+

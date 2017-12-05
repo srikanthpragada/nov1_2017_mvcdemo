@@ -12,7 +12,16 @@ namespace mvcdemo.Controllers
         // GET: Products
         public ActionResult Index()
         {
+
             return View();
+        }
+
+        [HttpPost]
+        public PartialViewResult Index(string prodname)
+        {
+            CatalogContext ctx = new CatalogContext();
+            var products = ctx.Products.Where(prod => prod.Name.Contains(prodname));
+            return PartialView("Search", products);
         }
 
         public ActionResult Delete(int id)
@@ -57,7 +66,7 @@ namespace mvcdemo.Controllers
             }
         }
 
-
+        // Get
         public ActionResult Edit(int id)
         {
             // Get Product with the given id
@@ -119,7 +128,7 @@ namespace mvcdemo.Controllers
         public ActionResult List()
         {
             CatalogContext ctx = new CatalogContext();
-            return View(ctx.Products);
+            return View(ctx.Products.OrderBy(prod => prod.Id).Take(20));
         }
     }
 }

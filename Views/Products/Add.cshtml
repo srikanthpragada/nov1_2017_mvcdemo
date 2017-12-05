@@ -18,8 +18,8 @@
         @Html.ValidationMessageFor(model => model.Price)
         <p />
         <div>Category</div>
-        @Html.EditorFor(model => model.Category)
-        @Html.ValidationMessageFor(model => model.Name)
+        @Html.DropDownListFor( model => model.Category,  
+                               mvcdemo.Models.ProductsUtil.Categories)
         <p />
         <div>Remarks </div>
         @Html.EditorFor(model => model.Remarks)

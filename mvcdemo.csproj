@@ -160,9 +160,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CatalogContext.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DiscountModel.cs" />
     <Compile Include="Models\Information.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductsUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +214,9 @@
     <Content Include="Views\Products\List.cshtml" />
     <Content Include="Views\Products\Add.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Search.cshtml" />
+    <Content Include="Views\Cache\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

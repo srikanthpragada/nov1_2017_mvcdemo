@@ -21,5 +21,13 @@ namespace mvcdemo.Models
                 return GetTable<Product>();
             }
         }
+
+        public Table<Category> Categories
+        {
+            get
+            {
+                return GetTable<Category>();
+            }
+        }
     }
 }
