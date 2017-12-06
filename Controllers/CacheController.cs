@@ -27,7 +27,7 @@ namespace mvcdemo.Controllers
         // Data caching demo
         public ActionResult Products(string catcode)
         {
-            var products = HttpContext.Cache["products"];
+            var products = HttpContext.Cache["products"] as IEnumerable<Product>;
             ViewBag.Message = "Cache Retrieved!";
             if ( products == null)
             {
