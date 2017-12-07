@@ -1,0 +1,37 @@
+﻿@model mvcdemo.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+</head>
+<body>
+    <h1>Login</h1>
+    @using (Html.BeginForm())
+    {
+
+        <div>Username</div>
+        @Html.TextBoxFor(m => Model.Username)
+        @Html.ValidationMessageFor( m => Model.Username)
+        <p />
+        <div>Password</div>
+        @Html.PasswordFor(m => Model.Password)
+        @Html.ValidationMessageFor(m => Model.Password)
+        <p />
+        <input type="submit" value="Login" />
+        <p/>
+        @ViewBag.Message
+
+    }
+
+</body>
+</html>
