@@ -1,0 +1,12 @@
+﻿@model IEnumerable<mvcdemo.Models.EF.Product>
+
+@{
+    ViewBag.Title = "List Of Products";
+    Layout = "master.cshtml";
+}
+
+<h2>List Of Products</h2>
+
+@Html.Partial("listproducts", Model);
+
+<h4>@TempData["message"]</h4>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<mvcdemo.Models.EF.Product>
+
+
+@if (Model.Count() > 0)
+{
+    Html.RenderPartial("listproducts", Model);
+}
+else
+{
+    <h4>Sorry! No product found your search!</h4>
+}
+

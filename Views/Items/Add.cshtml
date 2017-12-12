@@ -1,0 +1,31 @@
+﻿@model mvcdemo.Models.EF.Product
+
+@{
+    ViewBag.Title = "Add Product";
+    Layout = "master.cshtml";
+}
+
+<h2>New Product</h2>
+
+@using (Html.BeginForm())
+{
+        <div>Product Name </div>
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+        <p />
+        <div>Price</div>
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+        <p />
+        <div>Category</div>
+        @Html.DropDownListFor( model => model.CatCode ,  
+                               mvcdemo.Models.EF.Util.CategoryItems)
+        <p />
+        <div>Remarks </div>
+        @Html.EditorFor(model => model.Remarks)
+        @Html.ValidationMessageFor(model => model.Remarks)
+        <p />
+        <input type="submit" value="Add Product" />
+}
+
+<h4>@ViewBag.Message</h4>

@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -155,6 +161,7 @@
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\CacheController.cs" />
     <Compile Include="Controllers\FirstController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UIController.cs" />
@@ -165,6 +172,10 @@
     <Compile Include="Models\CatalogContext.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DiscountModel.cs" />
+    <Compile Include="Models\EF\Category.cs" />
+    <Compile Include="Models\EF\InventoryContext.cs" />
+    <Compile Include="Models\EF\Product.cs" />
+    <Compile Include="Models\EF\Util.cs" />
     <Compile Include="Models\Information.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductsUtil.cs" />
@@ -230,6 +241,13 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\UI\Index.cshtml" />
+    <Content Include="Views\Items\Add.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\Items\List.cshtml" />
+    <Content Include="Views\Items\listproducts.cshtml" />
+    <Content Include="Views\Items\Search.cshtml" />
+    <Content Include="Views\Items\master.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
