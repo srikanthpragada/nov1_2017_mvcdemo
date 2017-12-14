@@ -164,6 +164,8 @@
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\TimeController.cs" />
     <Compile Include="Controllers\UIController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -175,6 +177,7 @@
     <Compile Include="Models\EF\Category.cs" />
     <Compile Include="Models\EF\InventoryContext.cs" />
     <Compile Include="Models\EF\Product.cs" />
+    <Compile Include="Models\EF\Sale.cs" />
     <Compile Include="Models\EF\Util.cs" />
     <Compile Include="Models\Information.cs" />
     <Compile Include="Models\Product.cs" />
@@ -195,6 +198,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="salesclient.html" />
+    <Content Include="webapiclient.html" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />

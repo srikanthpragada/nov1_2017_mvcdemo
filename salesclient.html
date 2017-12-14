@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sales Client</title>
+    <script src="Scripts/jquery-1.12.4.js"></script>
+    <script>
+        function getSales()
+        {
+            $.getJSON("api/Sales", {},
+                function (sales) {
+                    // console.log(sales);
+                    var output = "<table width='100%' border='1'><tr><th>Invno </th><th>Product </th><th>Qty</th><th>Amount </th><th>Trans Date </th></tr>";
+
+                    $.each(sales,
+                        function (idx, sale) {
+                            output += "<tr><td>" + sale.Invno + "</td><td>"
+                                + sale.Prodid + "</td><td>" + sale.Qty + "</td><td>"
+                                + sale.Amount + "</td><td>" + sale.Transdate + "</td></tr>";
+                        }
+                    );
+
+                    output += "</table>"
+                    $("#result").html(output);
+                }
+            );
+        }
+
+        function getSalesByProduct() {
+            $.getJSON("api/Sales/" + $("#product").val(), {},
+                function (sales) {
+                    // console.log(sales);
+                    var output = "<table width='100%' border='1'><tr><th>Invno </th><th>Product </th><th>Qty</th><th>Amount </th><th>Trans Date </th></tr>";
+
+                    $.each(sales,
+                        function (idx, sale) {
+                            output += "<tr><td>" + sale.Invno + "</td><td>"
+                                + sale.Prodid + "</td><td>" + sale.Qty + "</td><td>"
+                                + sale.Amount + "</td><td>" + sale.Transdate + "</td></tr>";
+                        }
+                    );
+
+                    output += "</table>"
+                    $("#result").html(output);
+                }
+            );
+        }
+
+        function addSale() {
+            var url = "api/Sales";
+            var data = {
+                "Prodid": $("#Prodid").val(),
+                "Qty": $("#Qty").val(),
+                "Amount": $("#Amount").val(),
+                "Transdate": $("#Transdate").val()
+            };
+
+            $("#ajaxicon").css("visibility", "visible");
+
+            $.ajax(
+                {
+                 "url": url,
+                 "data": data,
+                 "type": "post",
+                 "success": function () { alert("Successfully Added!") },
+                 "error": displayError,
+                 "complete": function () {
+                     $("#ajaxicon").css("visibility", "hidden");
+                 }
+            });
+        }
+
+        function displayError(xhr, status, error) {
+            alert("Sorry! Could not complete task due to error!" + error);
+        }
+
+
+        function deleteSale() {
+
+            var url = "api/Sales/" + $("#Invno").val() ;
+            $.ajax(
+                {
+                    "url": url,
+                    "data": data,
+                    "type": "delete",
+                    "success": function () { alert("Successfully Added!") },
+                    "error": displayError,
+                    "complete": function () {
+                        $("#ajaxicon").css("visibility", "hidden");
+                    }
+                });
+        }
+
+
+    </script>
+</head>
+<body>
+    <button onclick="getSales()">Get All Sales</button>
+    <p/>
+    Product ID<input type="prodid" id="product" /><button onclick="getSalesByProduct()">Get Sales</button>
+    <p/>
+    <div id="result">
+    </div>
+    <h2>Add Sale</h2>
+    <input type="text" id="Prodid" placeholder="Product Id" />
+    <br/>
+    <input type="text" id="Qty" placeholder="Quantity" />
+    <br />
+    <input type="text" id="Amount" placeholder="Amount" />
+    <br />
+    <input type="text" id="Transdate" placeholder="Trans Date" />
+    <p />
+    <button onclick="addSale()">Add Sale</button> 
+    <img src="ajax-loader.gif" id="ajaxicon" style="visibility:hidden" />
+
+    <h2>Delete Sale</h2>
+    <input type="text" id="Invno" placeholder="Invoice" />
+    <button onclick="deleteSale()">Delete Sale</button> 
+    
+</body>
+</html>

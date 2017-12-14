@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Web API Client</title>
+    <script src="Scripts/jquery-1.12.4.js"></script>
+    <script>
+        function getTime()
+        {
+            $.getJSON("api/Time", {},
+                function (result) {
+                    var res = eval( "(" + result + ")" );
+                    $("#time").text(res.Hours);
+                }
+            );
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="getTime()">Get Time</button>
+    <h2 id="time"></h2>
+
+</body>
+</html>
