@@ -74,6 +74,16 @@
             alert("Sorry! Could not complete task due to error!" + error);
         }
 
+        function displayDeleteError(xhr, status, error) {
+            console.log(xhr);
+            console.log("Status : " + status);
+            console.log("Error : " + error);
+            if (xhr.status == 404)
+                alert("Sorry! Invoice Number Not Found!");
+            else
+                alert("Error : " + error);
+        }
+
 
         function deleteSale() {
 
@@ -81,13 +91,27 @@
             $.ajax(
                 {
                     "url": url,
-                    "data": data,
                     "type": "delete",
-                    "success": function () { alert("Successfully Added!") },
-                    "error": displayError,
-                    "complete": function () {
-                        $("#ajaxicon").css("visibility", "hidden");
-                    }
+                    "success": function () { alert("Successfully Deleted!") },
+                    "error": displayDeleteError
+                });
+        }
+
+        function updateSale() {
+
+            var url = "api/Sales/" + $("#invno").val();
+            var data = {
+                "Qty": $("#uqty").val(),
+                "Amount": $("#uamount").val()
+            };
+
+            $.ajax(
+                {
+                    "url": url,
+                    "data": data,
+                    "type": "put",
+                    "success": function () { alert("Successfully Updated!") },
+                    "error": displayError
                 });
         }
 
@@ -116,6 +140,16 @@
     <h2>Delete Sale</h2>
     <input type="text" id="Invno" placeholder="Invoice" />
     <button onclick="deleteSale()">Delete Sale</button> 
+
+    <h2>Update Sale</h2>
+
+    <input type="text" id="invno" placeholder="Invoice No" />
+    <br />
+    <input type="text" id="uqty" placeholder="Quantity" />
+    <br />
+    <input type="text" id="uamount" placeholder="Amount" />
+    <p />
+    <button onclick="updateSale()">Update Sale</button> 
     
 </body>
 </html>
